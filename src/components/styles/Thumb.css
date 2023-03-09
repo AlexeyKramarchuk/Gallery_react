@@ -1,0 +1,14 @@
+.images {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    height: 400px;
+    gap: 5px;
+
+  overflow-y: auto;
+}
+
+
+img {
+    width: 100px;
+}

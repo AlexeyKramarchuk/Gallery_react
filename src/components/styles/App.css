@@ -5,8 +5,9 @@
 }
 
 #root {
+    margin-left: 30px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 } 
 
 .App {

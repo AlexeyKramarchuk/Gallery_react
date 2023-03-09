@@ -1,11 +1,11 @@
 import React from "react";
-import Images from "./components/Images";
+import Thumb from "./components/Thumb";
 import './components/styles/App.css'
 
 function App() {
   return (
     <div className="App">
-      <Images />
+      <Thumb />
     </div>
   );
 }
