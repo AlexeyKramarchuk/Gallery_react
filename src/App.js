@@ -1,11 +1,11 @@
-import React from "react";
-import Thumb from "./components/Thumb";
-import './components/styles/App.css'
+import React, { useState } from "react";
+import Gallery from "./components/Gallery/Gallery";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Thumb />
+      <Gallery />
     </div>
   );
 }
