@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import ThumbList from "../ThumbList/ThumbList";
 import Preview from "../Preview/Preview";
+import './Gallery.css'
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
-  const [selectedImage, setSelectImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const selectImage = (imageURL) => {
     console.log(imageURL);
-    setSelectImage(imageURL);
+    setSelectedImage(imageURL);
   };
 
   useEffect(() => {
@@ -29,12 +30,12 @@ const Gallery = () => {
 
     if (selectedImage === null) {
       console.log(images);
-      setSelectImage(images[0].download_url);
+      setSelectedImage(images[0].download_url);
     }
   }, [images]);
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="gallery">
       <ThumbList selectImage={selectImage} images={images} />
       <Preview previewSource={selectedImage} />
     </div>

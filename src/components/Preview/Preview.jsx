@@ -1,10 +1,10 @@
 import React from 'react';
-import Arrows from "../Arrows/Arrows";
+import './Preview.css'
 
 
 const Preview = ({previewSource}) => {
     return (
-        <div>
+        <div className='preview'>
             <img src={previewSource}/>
       
         </div>
