@@ -6,11 +6,21 @@ import './Gallery.css'
 const Gallery = () => {
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [activeImage, setActiveImage] = useState(false)
 
   const selectImage = (imageURL) => {
-    console.log(imageURL);
+    // console.log(imageURL);
     setSelectedImage(imageURL);
   };
+
+  const borderToActiveImage = () => {
+    setActiveImage(activeImage => !activeImage)
+  }
+
+  const addActiveClass = () => {
+    if (activeImage) {
+    }
+  }
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -29,14 +39,14 @@ const Gallery = () => {
     if (!images || images.length === 0) return;
 
     if (selectedImage === null) {
-      console.log(images);
+      // console.log(images);
       setSelectedImage(images[0].download_url);
     }
   }, [images]);
 
   return (
     <div className="gallery">
-      <ThumbList selectImage={selectImage} images={images} />
+      <ThumbList borderToActiveImage={borderToActiveImage} selectImage={selectImage} images={images} />
       <Preview previewSource={selectedImage} />
     </div>
   );
