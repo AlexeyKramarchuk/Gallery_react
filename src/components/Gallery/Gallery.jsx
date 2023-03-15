@@ -8,19 +8,16 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [activeImage, setActiveImage] = useState(false)
 
-  const selectImage = (imageURL) => {
-    // console.log(imageURL);
-    setSelectedImage(imageURL);
+
+  const selectImage = (imageIndex) => {
+    console.log(imageIndex);
+    setSelectedImage(imageIndex);
   };
 
   const borderToActiveImage = () => {
     setActiveImage(activeImage => !activeImage)
   }
 
-  const addActiveClass = () => {
-    if (activeImage) {
-    }
-  }
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -59,3 +56,7 @@ export default Gallery;
 // ostylowanie
 // dodanie ramki
 //strzalki - zmienic selectedImage z url na id
+
+
+
+

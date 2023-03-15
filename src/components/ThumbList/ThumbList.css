@@ -12,3 +12,7 @@
 .images > img {
     width: 100px;
 }
+
+.active {
+  border: 2px solid red;
+}

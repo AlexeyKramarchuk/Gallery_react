@@ -4,15 +4,12 @@ import './ThumbList.css'
 
 const ThumbList = ({images, selectImage, borderToActiveImage}) => {
 
-  
-    
-
     return (
         <div>
             <div className='images'>
-              {images.map((image) => (
+              {images.map((image, index) => (
                 <img onClick={()=>{
-                    selectImage(image.download_url);
+                    selectImage(index);
                     borderToActiveImage();
                   }} 
                     key={image.id} 
