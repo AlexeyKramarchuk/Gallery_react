@@ -1,28 +1,21 @@
 import { useState, useEffect } from "react";
 import ThumbList from "../ThumbList/ThumbList";
 import Preview from "../Preview/Preview";
-import './Gallery.css'
+import "./Gallery.css";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [activeImage, setActiveImage] = useState(false)
-
 
   const selectImage = (imageIndex) => {
-    console.log(imageIndex);
+    // console.log(imageIndex);
     setSelectedImage(imageIndex);
   };
-
-  const borderToActiveImage = () => {
-    setActiveImage(activeImage => !activeImage)
-  }
-
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch("https://picsum.photos/v2/list?limit=20");
+        const response = await fetch("https://picsum.photos/v2/list?limit=6");
         const data = await response.json();
         setImages(data);
       } catch (error) {
@@ -37,26 +30,33 @@ const Gallery = () => {
 
     if (selectedImage === null) {
       // console.log(images);
-      setSelectedImage(images[0].download_url);
+      setSelectedImage(0);
     }
   }, [images]);
 
+  if (images.length === 0 || selectedImage === null) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="gallery">
-      <ThumbList borderToActiveImage={borderToActiveImage} selectImage={selectImage} images={images} />
-      <Preview previewSource={selectedImage} />
+      <ThumbList
+        selectImage={selectImage}
+        images={images}
+        selectedImage={selectedImage}
+      />
+      <Preview
+        previewImage={images[selectedImage]}
+        selectImage={setSelectedImage}
+        isLastImage={images.length - 1 === selectedImage}
+        isFirstImage={selectedImage === 0}
+      />
     </div>
   );
 };
 
 export default Gallery;
 
-
-
 // ostylowanie
 // dodanie ramki
 //strzalki - zmienic selectedImage z url na id
-
-
-
-

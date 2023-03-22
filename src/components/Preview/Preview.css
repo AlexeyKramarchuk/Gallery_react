@@ -1,4 +1,8 @@
+.preview {
+  position: relative;
+}
+
 .preview > img {
-    width: 600px;
-    border: 3px solid #A9A9A9;
+  width: 600px;
+  border: 3px solid #a9a9a9;
 }
